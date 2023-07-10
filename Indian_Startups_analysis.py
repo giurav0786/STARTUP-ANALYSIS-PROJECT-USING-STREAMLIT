@@ -1,8 +1,6 @@
 import streamlit as st
 import pandas as pd
-import time
 import matplotlib.pyplot as plt
-import plotly.express as px
 df  = pd.read_csv('clean_data1.csv')
 df['date'] = pd.to_datetime(df['date'],errors='coerce')
 df['month'] = df['date'].dt.month
