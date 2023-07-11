@@ -124,7 +124,7 @@ def load_overall_ana():
     st.pyplot(fig5) 
 
 def top_startups(name1):
-    print(name1)
+    st.title(f'{name1} Analysis')
     cv =df[df['startup'].str.contains(name1)]['amount'].sum()
     # print(df['amount'].sort_values(ascending=False))
     print(cv)
@@ -149,7 +149,7 @@ def top_startups(name1):
             # plt.xticks(rotation=90)
         st.pyplot(fig6)
     with col4:
-        st.subheader('SUBSERVISE WISE STARTUP FUNDED')
+        st.subheader('SUB-SERVISE WISE STARTUP FUNDED')
         cv1 =df[df['startup'].str.contains(name1)].groupby('subverticle')['amount'].sum()
         fig6, ax6 = plt.subplots()
         ax6.pie(cv1,labels=cv1.index,autopct="%0.01f%%")
@@ -185,7 +185,6 @@ elif option == 'startUp':
 
     startup_name = st.sidebar.selectbox('Select StartUp', investors_name)
     btn1 = st.sidebar.button('Find StartUp Details')
-    st.title('StartUp Analysis')
     if btn1:
         top_startups(startup_name)
 else : 
